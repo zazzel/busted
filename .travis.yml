@@ -14,8 +14,15 @@ env:
     - LUA=lua5.2
     - LUA=lua5.3
     - LUA=luajit
-    #- LUA=luajit2.0
+    - LUA=luajit2.0
     - LUA=luajit2.1
+    
+ jobs:
+  exclude:
+      - arch: ppc64le
+        env: LUA="luajit 2.1"
+      - arch: ppc64le
+        env: LUA="luajit 2.0"
 
 before_install:
   - source .travis/setenv_lua.sh
