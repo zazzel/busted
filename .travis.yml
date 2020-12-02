@@ -25,6 +25,10 @@ jobs:
           env: LUA=luajit2.1
           
 before_install:
+  - pip install hererocks
+  - hererocks env -r $LUAROCKS --$LUA
+  - source env/bin/activate
+  - luarocks install busted
   - source .travis/setenv_lua.sh
   - luarocks install luasec
   - luarocks install moonscript
