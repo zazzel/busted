@@ -17,13 +17,13 @@ env:
     - LUA=luajit2.0
     - LUA=luajit2.1
     
- jobs:
-  exclude:
-      - arch: ppc64le
-        env: LUA="luajit 2.1"
-      - arch: ppc64le
-        env: LUA="luajit 2.0"
-
+jobs:
+    exclude:
+        - arch: ppc64le
+          env: LUA=luajit2.0
+        - arch: ppc64le
+          env: LUA=luajit2.1
+          
 before_install:
   - source .travis/setenv_lua.sh
   - luarocks install luasec
